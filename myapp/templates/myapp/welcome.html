@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Side Navigation Bar</title>
+  <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <style>
+    table {
+			margin: 0 auto; 
+      color: white;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px; 
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #ff7200;
+      font-weight: bold;
+    }
+    
+    tr:hover {
+      background-color: #000;
+    }
+    
+    form {
+      margin: 3rem auto;
+      width: 90%;
+      max-width: 30rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    }
+    
+    button {
+      cursor: pointer;
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      background-color: #1f0050;
+      color: white;
+      border: 1px solid #1f0050;
+    }
+    
+    button:hover,
+    button:active {
+      background-color: #320777;
+      border-color: #320777;
+    }
+
+    .form-control {
+      margin-bottom: 1rem;
+    }
+    
+    .form-control input {
+      font: inherit;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      display: block;
+      width: 20rem;
+    }
+    
+    .form-control input:focus {
+      border-color: #1f0050;
+      outline: none;
+      background-color: #f4eeff;
+    }
+    
+    .form-control label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+        <h2>MFVS</h2>
+        <ul>
+           <li><a href="upload"><i class="fa fa-upload"></i>Upload</a></li>
+            <li><a href="mediafiles"><i class="fa fa-eye"></i>View Uploaded Files</a></li>
+            <li><a href="#"><i class="fas fa-address-card"></i>Add Users</a></li>
+            <li><a href="#"><i class="fa fa-file"></i>View Reports</a></li>
+        </ul> 
+    </div>
+    <div class="main_content">
+        <div class="header" style="background-color:#0e1029; color:white;">Welcome to the site !! Admin.</div>  
+        <div class="af">
+          <br><br><br>
+          <h3 style="color:white; text-align: center;">Manage Users</h3>
+          <br><br>
+         
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thread-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                        {% comment %} <th scope="col">Handle</th> {% endcomment %}
+    
+                    </tr>
+                </thead>
+                <tbody>
+                      {% for sts in st %}
+
+                      <tr>
+                        <td>{{sts.id}}</td>
+                          <td>{{sts.Firstname}}</td>
+                          <td>{{sts.lastname}}</td>
+                          <td>{{sts.status}}</td>
+                        {% comment %} <td><a href="action/{{sts.id}}/" ><button>Enable</button></a> 
+                          <a href="disable/{{sts.id}}/" ><button>Disable</button></a> {% endcomment %}
+                          <td><a href="{% url 'action_d' id=sts.id %}" ><button>Enable</button></a> 
+                            <a href="{% url 'disable_d' id=sts.id %}" ><button>Disable</button></a>
+                        </td>
+    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+   
+          
+  </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

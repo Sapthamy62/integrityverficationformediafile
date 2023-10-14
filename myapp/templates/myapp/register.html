@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>Signup Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                {% comment %} background-color: white; {% endcomment %}
+                {% comment %} background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url("/static/images/2.jpg"); {% endcomment %}
+                width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url("/static/images/2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+            }
+
+            button{
+                width: 20%;
+                height: 35px;
+                background-color: #ff7200;
+                border: none;
+                margin-top: 20px;
+                font-size: 18px;
+                border-radius: 9px;
+                cursor: pointer;
+                color: #fff;
+                transition: 0.4s ease;
+            }
+            button{
+                color: #fff;
+                border: 1px solid #ff7200;
+                background: #ff7200;
+            }
+            button:hover{
+                background: #fff;
+                color: #ff7200;
+            }
+            button a{
+                text-decoration: none;
+                color: #000;
+                font-weight: bold;
+            }
+            
+            {% comment %} button{
+                background-color: #4CAF50;
+                width: 25%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+            } {% endcomment %}
+            label{
+                font-size: 20px;
+            }
+            form{
+
+                background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+
+            }
+            form h2{
+                width: 220px;
+                font-family: sans-serif;
+                text-align: center;
+                color: #ff7200;
+                font-size: 22px;
+                background-color: #fff;
+                border-radius: 10px;
+                margin: 2px;
+                padding: 8px;
+            }
+            
+            form input{
+                width: 240px;
+                height: 35px;
+                background : transparent;
+                border-bottom: 1px solid #ff7200;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                color: #fff;
+                font-size: 15px;
+                letter-spacing: 1px;
+                margin-top: 30px;
+                font-family: sans-serif;
+            }
+            
+            form input:focus{
+                outline: none;
+            }
+            form input:invalid{
+            animation: shake .4s;
+            }
+            @keyframes shake {
+                25%{transform: translateX(4px)}
+                50%{transform: translateX(-4px)}
+                75%{transform: translateX(4px)}
+            
+            }
+            
+            
+            {% comment %} form{
+                border: 3px solid #f1f1f1;
+            } {% endcomment %}
+            input[type=email],input[type=text]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid #ff7200;
+                box-sizing: border-box;
+
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 18px;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            {% comment %} .container{
+                padding: 50px;
+                background-color: white;
+            } {% endcomment %}
+            {% comment %} .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            } {% endcomment %}
+              
+            img.avatar {
+                width: 10%;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+    <body>
+        <div class="main" style="color:white;">
+        <center><h1 style="color:white;">Register From</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                {% comment %} {% comment %} <div class="imgcontainer">
+                    <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar">
+                </div> {% endcomment %}
+{% comment %} 
+                <label for='first_name' style="color:white; "><b>First Name : </b></label>
+		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+		        <label for='last_name' style="color:white;"><b>Last Name :</b></label>
+		        <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+            	<label for ='email' style="color:white;"><b>Email Id : </b></label>
+            	<input type="email" placeholder="Enter email" name="email" required><br>  
+            	<label for='password' style="color:white;"><b>Password : </b></label>
+            	<input type="text" placeholder="Enter Password" name="password" required><br>  
+                <a href ="admmm.html">  {% endcomment %}
+                    {% csrf_token %}
+                    {% for fields in form %}
+                     {{fields.label_tag}}
+                     {{fields}}
+                   <br>
+                     {% endfor %}
+                    </div>
+            	<button type="submit"><b>Signup</b></button><br><a/>  
+            	Already an account?..<a href="login" > Login Here </a>
+            </div></center>
+        </form>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,158 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Confirmation Popup</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+	/* #82ce34 */
+body {
+	font-family: Arial;
+	width: 100%;
+    background: linear-gradient(to top, rgba(5, 1, 23, 0.5)50%,rgba(0,0,0,0.5)50%), url(2..jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+.modal-confirm {	
+		
+	color: #636363;
+	width: 325px;
+	font-size: 14px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}	
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 13px;
+}	
+.modal-confirm .icon-box {
+	color: #fff;		
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: -70px;
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #ff7200;
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+	font-size: 58px;
+	position: relative;
+	top: 3px;
+}
+.modal-confirm.modal-dialog {
+	margin-top: 80px;
+}
+.modal-confirm .btn {
+	color: #fff;
+	border-radius: 4px;
+	background: #ff7200;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+	background: #ff7200;
+	outline: none;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+</style>
+</head>
+<body>
+ <button onmousedown="sound1.play()">
+<div class="text-center">
+	
+	 <a href="#myModal" class="trigger-btn" data-toggle="modal">Click</a> 
+
+</div> 
+</button> 
+
+
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>				
+				<h4 class="modal-title w-100">Verification Successful!</h4>	
+			</div>
+			<div class="modal-body">
+				{% comment %} <p class="text-center">The media file is not tampered.</p> {% endcomment %}
+                {% comment %} <p class="text-center">{{s}}.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+	</div>
+</div>     
+<script>
+	var sound1 = new Audio();
+	sound1.src = "sounds/t.wav"
+  </script>
+</body>
+</html> {% endcomment %} 
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="{% static 'app.js' %}"></script>
+    <title>Verification Dialog Box Example</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dialog-style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+
+    <!-- Hidden dialog box -->
+    <div id="dialog-box" class="dialog-box">
+        <div class="dialog-content">
+            <h2>Verification Successful!</h2>
+            <p><b>{{s}}<b></p>
+            <button class="ok-button" onclick="closeDialog()">OK</button>
+        </div>
+    </div>
+</body>
+</html>

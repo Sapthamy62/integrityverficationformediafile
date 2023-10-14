@@ -1,0 +1,43 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+
+  <link rel="stylesheet" href="{% static 'css/c.css' %}">
+</head>
+<body>
+    <div class="login_form_container">
+    <div class="login_form">
+        <h2>Login Here</h2>
+      
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            {%for fields in forms%} {{value | linebreaks}}
+            {% comment %} {{fields.label_tag}} {% endcomment %}
+            <div class="input_group">
+                <i class="fa fa-unlock-alt"></i>
+        {{fields}}
+    </div>
+        {% endfor %}{{value | linebreaks}}
+           
+        <button class="btnn" type="submit">Login</button>
+        </form>
+   
+
+       <!-- <input type="email" name="email" placeholder="Enter Email Here">
+        <input type="password" name="" placeholder="Enter Password Here">
+        <button class="btnn"><a href="f.html">Login</a></button>
+        <br>
+        <p class="link">
+        <a href="forgot.html">Forgot Password?</a>
+        </p>-->
+    </div>
+</div>
+</body>
+</html>
